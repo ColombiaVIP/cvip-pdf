@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: CVIP PDF
- * Description: A plugin to generate a PDF of a product image, gallery and description, the link is generated via shortcode, example usage: [cvippdf linkText="Genera PDF de este producto" generandoText="Generando PDF (Por favor acepta la descarga)"  textoPie="www.YourSite.com | phone: 506 8888-8888 | Columbia Central city"].
+ * Description: A plugin to generate a PDF of a product image, gallery and description, the link is generated via shortcode, example usage: <code><strong>[cvippdf linkText="Genera PDF de este producto" generandoText="Generando PDF (Por favor acepta la descarga)"  textoPie="www.YourSite.com | phone: 506 8888-8888 | Columbia Central city"]</strong></code>.
  * Version: 1.5
  * Author: Your Name
  */
