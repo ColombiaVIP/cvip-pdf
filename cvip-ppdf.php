@@ -50,7 +50,7 @@ function cvipppdf_add_pdf_link() {
             foreach( $attachment_ids as $attachment_id ) {
                 $image_urls[] = wp_get_attachment_url( $attachment_id );
             }
-            echo "Generando PDF";        
+            echo "Generando PDF (Por favor acepta la descarga)";        
             ?>
             <script src="<?php echo plugin_dir_url( __FILE__ )?>/js/node_modules/jspdf/dist/jspdf.umd.min.js"></script>
             <script>
@@ -124,7 +124,7 @@ function cvipppdf_add_pdf_link() {
                     200, 
                     200                    
                 );
-                window.open(doc.output('bloburl'))
+                // window.open(doc.output('bloburl'));
                 doc.save('output.pdf');
                 
 
@@ -133,11 +133,11 @@ function cvipppdf_add_pdf_link() {
             <?php
         }
         else {
-            echo '<a href="?generate-pdf" id="generate-pdf-link">Generate PDF</a>';
+            echo '<a href="?generate-pdf" id="generate-pdf-link">Genera PDF</a>';
         }
         
     }
 }
-add_action( 'woocommerce_before_single_product', 'cvipppdf_add_pdf_link' );
+add_action( 'woocommerce_after_single_product_summary', 'cvipppdf_add_pdf_link' );
 
 ?>
