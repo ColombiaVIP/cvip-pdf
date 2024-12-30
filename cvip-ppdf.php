@@ -20,9 +20,9 @@ function cvipppdf_add_pdf_link() {
 
             $attachment_ids = $product->get_gallery_image_ids();
             //Guardar la descripcion del producto
-            $descripcion = $product->get_short_description();
+            $descripcion = $product->get_description();
             //escapa la descipcion
-            $descripcion = esc_html($descripcion);
+            $descripcion = wp_strip_all_tags(json_encode($descripcion));
             $anchoFeatured = 100;
             $anchoGallery = 50;
             $posGalleryX = 5;
