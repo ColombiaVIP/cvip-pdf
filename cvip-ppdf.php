@@ -21,6 +21,8 @@ function cvipppdf_add_pdf_link() {
             $attachment_ids = $product->get_gallery_image_ids();
             //Guardar la descripcion del producto
             $descripcion = $product->get_short_description();
+            //escapa la descipcion
+            $descripcion = esc_html($descripcion);
             $anchoFeatured = 100;
             $anchoGallery = 50;
             $posGalleryX = 5;
