@@ -1,0 +1,29 @@
+msgid "Plugin Name"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
+msgid "Author"
+msgstr ""
+
+msgid "License"
+msgstr ""
+
+msgid "Featured Image"
+msgstr ""
+
+msgid "Generate PDF"
+msgstr ""
+
+msgid "PDF generated successfully."
+msgstr ""
+
+msgid "Error generating PDF."
+msgstr ""
+
+msgid "No featured image found."
+msgstr ""
