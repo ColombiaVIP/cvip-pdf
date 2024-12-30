@@ -34,6 +34,7 @@ class CVIP_PDF{
                 add_action( 'wp_footer', array($this, 'cvippdf_script') );
             }
             else {
+                print_r($this->atts);
                 echo "<a href='?generate-pdf' id='generate-pdf-link'>".$this->atts["linktext"]."</a>";
             }
             
@@ -48,7 +49,11 @@ class CVIP_PDF{
         $logo =  wp_get_attachment_url( $logo );
     
         // Texto del pie de página
-        $textoPie= $this->atts["textopie"];
+        $textoPie= trim(
+            json_encode(
+                $this->atts["textopie"]
+            ),'\'"'
+        );
     
         //Guardar la descripcion del producto
         $descripcion = $product->get_description();
@@ -125,15 +130,15 @@ class CVIP_PDF{
                 '<?=$logo?>', 
                 'JPG', 
                 5, 
-                260, 
+                265, 
                 30, 
                 30                    
             );
             doc.text(
                 '<?=$textoPie ?>', 
-                60, 
+                40, 
                 280,
-                { maxWidth: 200 }
+                { maxWidth: 280 }
             );
     
             doc.setPage(1);
