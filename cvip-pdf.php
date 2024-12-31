@@ -34,7 +34,6 @@ class CVIP_PDF{
                 add_action( 'wp_footer', array($this, 'cvippdf_script') );
             }
             else {
-                print_r($this->atts);
                 echo "<a href='?generate-pdf' id='generate-pdf-link'>".$this->atts["linktext"]."</a>";
             }
             
