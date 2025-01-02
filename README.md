@@ -2,7 +2,7 @@
 Allows printing a WooCommerce product as PDF
 
 ## Description
-This plugin retrieves the featured image of a post and generates a PDF document containing that image.
+This plugin generates a PDF of a product image, gallery and description, the link is generated via shortcode.
 
 ## Installation
 1. Upload the plugin files to the `/wp-content/plugins/my-wordpress-plugin` directory, or install the plugin through the WordPress plugins screen directly.
@@ -23,3 +23,5 @@ Custom styles for the plugin can be found in the `assets/css/style.css` file.
 
 ## Support
 For support, please open an issue on the plugin's repository.
+
+* 20250102: updated name
