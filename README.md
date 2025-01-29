@@ -25,5 +25,5 @@ Custom styles for the plugin can be found in the `assets/css/style.css` file.
 For support, please open an issue on the plugin's repository.
 
 ## Changelog
-* 20250128: version and author corrected
+* 20250128: version and author corrected, plugin zip added.
 * 20250102: updated name
