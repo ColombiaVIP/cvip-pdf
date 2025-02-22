@@ -127,7 +127,7 @@ class CVIP_PDF{
             );
             doc.addImage(
                 '<?=$logo?>', 
-                'JPG', 
+                'JPEG', 
                 5, 
                 265, 
                 30, 
@@ -146,7 +146,7 @@ class CVIP_PDF{
             //LOGO
             doc.addImage(
                 '<?=$logo?>', 
-                'JPG', 
+                'JPEG', 
                 5, 
                 5, 
                 200, 
