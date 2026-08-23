@@ -1,8 +1,8 @@
-# cvip-ppdf
-Allows printing a WooCommerce product as PDF
+# CVIP-PDF&CSV
+Allows printing a WooCommerce product as PDF and Catalog as CSV
 
 ## Description
-This plugin generates a PDF of a product image, gallery and description, the link is generated via shortcode.
+This plugin generates a PDF of a product image, gallery and description, the link is generated via shortcode. Also creates button to download Catalog.
 
 ## Installation
 1. Upload the plugin files to the `/wp-content/plugins/my-wordpress-plugin` directory, or install the plugin through the WordPress plugins screen directly.
