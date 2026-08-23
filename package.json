@@ -1,0 +1,15 @@
+{
+  "name": "cvip-pdf",
+  "version": "1.7.0",
+  "description": "Generate a WooCommerce product PDF and download a CSV product catalog.",
+  "author": "Colombiavip.com",
+  "license": "GPL-2.0-or-later",
+  "main": "cvip-pdf.php",
+  "scripts": {
+    "build": "wp-scripts build && mkdir -p build && cp js/node_modules/jspdf/dist/jspdf.umd.min.js build/ && cp js/node_modules/svg2pdf.js/dist/svg2pdf.umd.min.js build/",
+    "plugin-zip": "wp-scripts plugin-zip"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.21.0"
+  }
+}
