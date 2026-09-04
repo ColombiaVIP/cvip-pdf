@@ -2,7 +2,7 @@
 /**
  * Plugin Name: CVIP Product PDF & CSV Catalog
  * Description: To generate a PDF of a product image, gallery and description, usage: <code><strong>[cvippdf linkText="Genera PDF de este producto" generandoText="Generando PDF (Por favor acepta la descarga)"  textoPie="www.YourSite.com | phone: 506 8888-8888 | Columbia Central city"]</strong></code>. <br>To add a catalog download button on any page, use:<code><strong>[boton_descargar_productos linktext="Descargar inventario"]</strong></code>
- * Version: 1.7.0
+ * Version: 1.9.0
  * Author: Colombiavip.com
  */
 
@@ -10,6 +10,13 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-cvip-meta-catalog.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-cvip-meta-catalog-settings.php';
+
+register_activation_hook( __FILE__, array( 'CVIP_Meta_Catalog', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'CVIP_Meta_Catalog', 'deactivate' ) );
+
 class CVIP_PDF{
     //Textos por defecto
     public $atts = [
@@ -22,6 +29,8 @@ class CVIP_PDF{
         add_shortcode('boton_descargar_productos', array($this, 'catalog_csv_shortcode'));
         add_action('wp_ajax_exportar_productos_csv', array($this, 'export_products_csv'));
         add_action('wp_ajax_nopriv_exportar_productos_csv', array($this, 'export_products_csv'));
+        CVIP_Meta_Catalog::instance();
+        CVIP_Meta_Catalog_Settings::init();
     }
     public function cvippdf_shortcode($atts) {
         $this->atts = array_merge($this->atts,$atts);
@@ -46,13 +55,19 @@ class CVIP_PDF{
     public function catalog_csv_shortcode( $atts ) {
         $atts = shortcode_atts(
             array(
-                'linktext' => 'Descargar catálogo (CSV)',
+                'linktext'  => 'Descargar catálogo (CSV)',
+                'plantilla' => 'interno',
             ),
             $atts,
             'boton_descargar_productos'
         );
 
-        $url = admin_url( 'admin-ajax.php?action=exportar_productos_csv' );
+        $plantilla = strtolower( (string) $atts['plantilla'] );
+        if ( in_array( $plantilla, array( 'meta', 'facebook', 'catalog_vehicles' ), true ) ) {
+            $url = CVIP_Meta_Catalog::get_file_url();
+        } else {
+            $url = admin_url( 'admin-ajax.php?action=exportar_productos_csv' );
+        }
 
         return sprintf(
             '<a href="%s" class="boton-descargar-csv">%s</a>',

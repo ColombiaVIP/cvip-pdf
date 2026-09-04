@@ -22,9 +22,27 @@ To add a catalog download button on any page, use:
 ```php
 [boton_descargar_productos]
 [boton_descargar_productos linktext="Descargar inventario"]
+[boton_descargar_productos plantilla="meta" linktext="Catálogo Meta"]
 ```
 
-The button points to a public `admin-ajax.php` endpoint (`exportar_productos_csv`, with `nopriv`) that generates a CSV of published products.
+The default button points to a public `admin-ajax.php` endpoint (`exportar_productos_csv`, with `nopriv`) that generates the internal semicolon CSV of published products.
+
+`plantilla="meta"` links to the on-disk Meta/Facebook vehicle feed at `wp-content/uploads/cvip-feeds/catalog_vehicles.csv`, rebuilt hourly and when products change.
+
+### Meta CSV 
+Creates a file to sync woocommerce products to meta.
+
+File link:
+
+```
+/wp-content/uploads/cvip-feeds/catalog_vehicles.csv
+```
+
+Settings:
+
+```
+/wp-admin/admin.php?page=cvip-meta-catalog
+```
 
 ## Features
 - Retrieves the featured image of a post.
@@ -42,6 +60,7 @@ Custom styles for the plugin can be found in the `assets/css/style.css` file.
 For support, please open an issue on the plugin's repository.
 
 ## Changelog
+* 20260903: Added on-disk Meta vehicle CSV feed (`catalog_vehicles.csv`) (v1.8.0).
 * 20260822: Added public CSV catalog download via `[boton_descargar_productos]` (v1.7.0).
 * 20260822: Updated jsPDF to 4.2.1 (v1.6.1).
 * 20260822: Added SVG image support via svg2pdf.js (v1.6.0).
